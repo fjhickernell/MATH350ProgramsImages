@@ -41,6 +41,9 @@ ylabel('displacement, \(y\)') %y-axis label
 axis([0 4 0 4]); %set horizontal and vertical axis ranges
 
 %% Find Where \(y\) Reaches Maximum
+% The maximum value of the function \(y\) may be found by elementary
+% calculus operations.  The first derivative of this function is 
+
 tmax=1/2; %time of maximum computed using calculus
 ymax=y(tmax); %value of maximum displacement
 hold on %to add further elements to the plot
