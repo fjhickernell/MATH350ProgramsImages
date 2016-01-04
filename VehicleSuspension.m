@@ -43,6 +43,9 @@ axis([0 4 0 4]); %set horizontal and vertical axis ranges
 %% Find Where \(y\) Reaches Maximum
 % The maximum value of the function \(y\) may be found by elementary
 % calculus operations.  The first derivative of this function is 
+%
+% \[ \frac{\textrm{d}y}{\textrm{d}t} = 20 \textrm{e}^{-2t}(1 -2t)\]
+%
 
 tmax=1/2; %time of maximum computed using calculus
 ymax=y(tmax); %value of maximum displacement
