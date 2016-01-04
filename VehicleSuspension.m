@@ -44,10 +44,10 @@ axis([0 4 0 4]); %set horizontal and vertical axis ranges
 % The maximum value of the function \(y\) may be found by elementary
 % calculus operations.  The first derivative of this function is 
 %
-% \[ \frac{\textrm{d}y}{\textrm{d}t} = 20 \textrm{e}^{-2t}(1 -2t) =
-% \begin{cases} > 0 & t < 1/2, \\ < 0  & t > 1/2. \]
+% \[ \frac{\textrm{d}y}{\textrm{d}t} = 20 \textrm{e}^{-2t}(1 -2t)
+% \begin{cases} > 0 & t < 1/2, \\ < 0  & t > 1/2.\end{cases} \]
 %
-% Thus, the maximum occurs at \(t = 1/2\). 
+% Thus, the maximum occurs at \(t = 1/2\). We add this maximum to the plot.
 
 tmax=1/2; %time of maximum computed using calculus
 ymax=y(tmax); %value of maximum displacement
