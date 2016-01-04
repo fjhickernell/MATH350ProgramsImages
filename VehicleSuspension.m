@@ -40,14 +40,15 @@ xlabel('time, \(t\)') %x-axis label
 ylabel('displacement, \(y\)') %y-axis label
 axis([0 4 0 4]); %set horizontal and vertical axis ranges
 
-%% Find Where \(y\) Reaches Maximum
+%% Find Where \(y\) Reaches Its Maximum Value
 % The maximum value of the function \(y\) may be found by elementary
 % calculus operations.  The first derivative of this function is 
 %
 % \[ \frac{\textrm{d}y}{\textrm{d}t} = 20 \textrm{e}^{-2t}(1 -2t)
 % \begin{cases} > 0 & t < 1/2, \\ < 0  & t > 1/2.\end{cases} \]
 %
-% Thus, the maximum occurs at \(t = 1/2\). We add this maximum to the plot.
+% Thus, the maximum occurs at \(t = 1/2 =:t_\max\) and is \(y(t_\max) =
+% y(1/2) = 10/ \textrm{e} =: y_{\max}\). We add this maximum to the plot.
 
 tmax=1/2; %time of maximum computed using calculus
 ymax=y(tmax); %value of maximum displacement
@@ -56,15 +57,31 @@ plot([0 tmax tmax],[ymax ymax 0],'k--',tmax,ymax,'r.') %plot maximum
 text(tmax-0.2,-0.2,num2str(tmax,2)) %add tmax
 text(-0.5,ymax,num2str(ymax,3)) %add ymax
 
-%% Find where y reaches one tenth of maximum and plot it
+%% Find Where \(y\) Reaches One Tenth of Its Maximum Value
+% The next question is harder to solve.  We want to find the value of \(t\)
+% satisfying
+% 
+% \[ 20t \textrm{e}^{-2t} =  y(t) =  y_{\max}/10 =  1/\textrm{e}.\]
+%
+% This is a nonlinear equation without an analytic solution.  But the
+% solution may be found numerically. We think of the problem as solving for
+% \(t\) satisfying
+%
+% \[ y(t) - y_{\max}/10 = 0.\]
+%
+% which means finding the zero of the function defined by \(y(t) -
+% y_{max}/10\).  
+%
+% This can be done using the MATLAB function |fzero|.  We need to tell
+% |fzero| where to look for the solution.  We know that it is to the right
+% of \(t_\max\) and to the left of \(4\) because \(y(4) < y_\max/10\).
+
 tenthymax=ymax/10; %target value of the displacement
 ttenth=fzero(@(t) y(t)-tenthymax,[tmax 4]); %compute time where tenth of maximum is reached
-plot([0 ttenth ttenth],[tenthymax tenthymax 0],'k--',ttenth,tenthymax,'r.')
-text(ttenth-0.25,-0.2,num2str(ttenth,3))
-text(-0.5,tenthymax,num2str(tenthymax,2))
-
-%% Print it to a figure
-print -depsc VehicleSuspensionGraph.eps %Make an .eps file
+plot([0 ttenth ttenth],[tenthymax tenthymax 0],'k--',ttenth,tenthymax,'r.') %plot these new values
+text(ttenth-0.25,-0.2,num2str(ttenth,3)) %and label
+text(-0.5,tenthymax,num2str(tenthymax,2)) %them
+print -depsc VehicleSuspensionGraph.eps %Make an .eps file of our final figure
 
 %% Define and plot the displacement for three cases
 figure
