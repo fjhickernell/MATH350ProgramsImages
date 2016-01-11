@@ -153,8 +153,8 @@ h=plot(tplot,dampedmassspring(tplot,m,betacrit,k,v0),'b-', ... critical
    tplot,dampedmassspring(tplot,m,betaunder,k,v0),'k-', ... underdamped
    tplot,dampedmassspring(tplot,m,betaover,k,v0),'r-'); %overdamped
    %plot all three y
-xlabel('time, $t$','interpreter','latex') %x-axis label
-ylabel('displacement, $y$','interpreter','latex') %y-axis label
+xlabel('time, \(t\)') %x-axis label
+ylabel('displacement, \(y\)') %y-axis label
 axis([0 4 -1 6]); %set horizontal and vertical axis ranges
 legend(h([2 1 3]),{'underdamped','critically damped','overdamped'}) %add a legend
 print -depsc VehicleSuspension3CaseGraph.eps %make an .eps file
