@@ -42,8 +42,8 @@ ylabel('displacement, \(y\)') %y-axis label
 axis([0 4 0 4]); %set horizontal and vertical axis ranges
 
 %% Find Where \(y\) Reaches Its Maximum Value
-% The maximum value of the function \(y\) may be found by elementary
-% calculus operations.  The first derivative of this function is 
+% The maximum value of the function \(y\) may be found analytically by
+% elementary calculus.  The first derivative of this function is
 %
 % \[ \frac{\textrm{d}y}{\textrm{d}t} = 20 \textrm{e}^{-2t}(1 -2t)
 % \begin{cases} > 0 & t < 1/2, \\ < 0  & t > 1/2.\end{cases} \]
