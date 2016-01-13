@@ -12,6 +12,9 @@ save('PublishTime.mat','tPubStart') %save it because clearvars is invoked by dem
 % Simple MATLAB commands for an application problem
 publishMathJax('VehicleSuspension')
 
+%% Sine Function Round-Off and Truncation Error
+publishMathJax('SineRoundOffTruncationError')
+
 %%
 % Clean up and publish the total time taken.
 load PublishTime.mat %load back tPubStart
