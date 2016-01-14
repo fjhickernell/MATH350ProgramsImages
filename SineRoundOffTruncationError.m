@@ -66,7 +66,8 @@ print -depsc SineRoundoff.eps
 % 2^{-53}. \]
 % 
 % This inequality holds for \(n \ge 14\).  Thus, if we choose \(n = 14\)
-% and take some random values of \(x\), the 
+% and take some random values of \(x\), the approxmation to \(\sin(x)\) is
+% as follows:
 
 x = 20*rand(1,8) - 10 %random values of x
 sinx = sin(x);
