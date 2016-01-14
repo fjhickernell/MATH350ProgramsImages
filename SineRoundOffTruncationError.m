@@ -9,7 +9,8 @@
 % \begin{equation}
 % \sin(y) = \underbrace{y - \frac{y^3}{6} + \frac{y^5}{120} + \cdots -
 % \frac{y^{2n-1}}{(2n-1)!} }_{\text{Taylor polynomial approximation}} +
-% \underbrace{\frac{\cos(\xi) y^{2n+1}}{(2n+1)!}}_{\text{truncation error}}
+% \underbrace{\frac{\cos(\xi) y^{2n+1}}{(2n+1)!}}_{\text{truncation
+% error}}, \qquad \lvert \xi \rvert \le \lvert y \rvert. 
 % \tag{Taylor} 
 % \end{equation}
 %

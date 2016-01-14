@@ -3,10 +3,15 @@
 % Monte Carlo Methods in Finance.
 %
 % First we move to the correct directory
+
 cd(fileparts(which('PublishMATH350Demos'))) %change directory to where this is
 clearvars %clear all variables
 tPubStart = tic; %start timer
 save('PublishTime.mat','tPubStart') %save it because clearvars is invoked by demos
+
+%%
+% The we use |publishMathJax|, which is an enhanced version of MATLAB's
+% |publish| command.
 
 %% Vehicle Suspension Example
 % Simple MATLAB commands for an application problem
