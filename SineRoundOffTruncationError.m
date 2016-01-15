@@ -20,7 +20,7 @@
 % smaller than round-off error. However, for large \(y\) the value of \(n\)
 % would need to be quite large. Thus, the first step in computing
 % \(\sin(x)\) is to find a small value of \(y\) for which \(\sin(y) =
-% \sin(x)\).  This is true for
+% \sin(x)\).  This is true for \(y\) defined as
 %
 % \begin{equation}
 % y=x - 2\pi \left\lfloor \frac{x+\pi}{2\pi} \right \rfloor \in
