@@ -14,11 +14,12 @@
 % \tag{Taylor} 
 % \end{equation}
 %
-% By choosing \(n\) large enough, one may ensure that the truncation error
-% is smaller than round-off error.  However, for large \(y\) the value of
-% \(n\) would need to be quite large.  Thus, the first step in computing
-% \(\sin(x)\) is to find a small value of \(y\) for which \(\sin(y) =
-% \sin(x)\).  This is true for
+% Formula (Taylor) allows us to compute a complicated function, \(\sin\),
+% using a simple polynomial function.  By choosing \(n\) large enough, one
+% may ensure that the truncation error is smaller than round-off error.
+% However, for large \(y\) the value of \(n\) would need to be quite large.
+% Thus, the first step in computing \(\sin(x)\) is to find a small value of
+% \(y\) for which \(\sin(y) = \sin(x)\).  This is true for
 %
 % \begin{equation}
 % y=x - 2\pi \left\lfloor \frac{x+\pi}{2\pi} \right \rfloor \in
