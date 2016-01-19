@@ -20,6 +20,8 @@ publishMathJax('VehicleSuspension')
 %% Sine Function Round-Off and Truncation Error
 publishMathJax('SineRoundOffTruncationError')
 
+%% Add another demo here
+
 %%
 % Clean up and publish the total time taken.
 load PublishTime.mat %load back tPubStart
