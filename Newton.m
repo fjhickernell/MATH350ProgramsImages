@@ -13,7 +13,7 @@ while abs(x - xprev) > tol*abs(x) %tolerance not satisfied
       warning('f''(x) so cannot iterate further'), break
    end 
    xprev=x; %save old iterate
-   x=x-fx/fpx %next iterate
+   x=x-fx/fpx; %next iterate
    n=n+1; %increment iteration counter
    if n>1000, warning('Newton''s method not converging'); return, end
 end
