@@ -1,6 +1,8 @@
 function [x,n]=bisection(f,a,b,tol)
-% x=BISECTION(f,a,b,tol) finds the roots of the nonlinear equation
-%   f(x) = 0 via the bisection method
+% x=BISECTION(f,a,b,tol) finds a root of the nonlinear equation
+%   f(x) = 0 on the interval [a,b] via the bisection method.  The answer
+%   should have a relative error <= tol.  The output n is the number of
+%   iterations.
 n=0; %number of iterations;
 sfa=sign(f(a)); %evaluate signs of the values of the function 
 sfb=sign(f(b)); %at the endpoints of the interval
@@ -10,7 +12,7 @@ end
 if sfa*sfb == 1; %not sure of a root inside
    error('Function must have different signs at interval endpoints')
 end
-if nargin<4; tol=2*eps; end %set relative error tolerance
+if nargin<4; tol=2*eps; end %set default relative error tolerance
 tol=max(2*eps,tol); %relative error tolerance cannot be too small
 while abs(b-a) > tol*min(abs(a),abs(b)) %tolerance not satisfied
    x=(a+b)/2; %bisect the interval
