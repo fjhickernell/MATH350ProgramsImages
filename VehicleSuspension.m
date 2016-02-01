@@ -3,7 +3,7 @@
 %% The Situation
 % Automobiles, trucks and other vehicles have
 % <http://en.wikipedia.org/wiki/Suspension_(vehicle) suspension systems>
-% for keeping and passengers comfortable. They are comprised of springs and
+% for keeping passengers comfortable. They are comprised of springs and
 % shock absorbers and look like this:
 %
 % <<../ShockAbsorberSpring.jpg>>

@@ -1,6 +1,9 @@
 function [x,n]=secant(f,a,b,tol)
 % x=SECANT(f,a,b,tol) finds the roots of the nonlinear equation
-%   f(x) = 0 via the secant method
+%   f(x) = 0 via the secant method.  The points a and b are the starting
+%   points of the secant method.  The answer x is expected to be have a
+%   relative error of no more than tol.  The number of iterations needed is
+%   n.
 n=0; %number of iterations;
 if nargin<4; tol=2*eps; end %set relative error tolerance
 tol=max(2*eps,tol); %relative error tolerance cannot be too small

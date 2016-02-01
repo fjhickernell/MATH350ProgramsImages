@@ -23,6 +23,9 @@ publishMathJax('RoundOffMachinePrecision')
 %% Sine Function Round-Off and Truncation Error
 publishMathJax('SineRoundOffTruncationError')
 
+%% Various Methods for Solving Nonlinear Equations
+publishMathJax('NonlinearEquationExamples')
+
 %% Add another demo here
 
 %%
