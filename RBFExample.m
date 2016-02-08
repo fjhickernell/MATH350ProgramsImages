@@ -1,4 +1,5 @@
 %% Radial Basis Function Interpolation Example
+%%
 % Professor Greg Fasshauer in our department is an expert in this subject
 % and has written two monographs, one with an IIT BS alumnus:
 %
@@ -105,7 +106,7 @@ disp(['Condition of K matrix = ' num2str(cond(Kmat))])
 
 %%
 % Notice that the condition number of the matrix \(\mathsf{K}\) is very
-% large.  This is an indication that it may be close to singular.
+% large.  This is an indication that \(\mathsf{K}\) may be close to singular.
 %
 % Here is a plot of the kernel function that we use.
 
@@ -117,8 +118,9 @@ axis([0 2 -0.1 1.1])
 eval(['print -depsc RBFKernelgam' num2str(gamma) '.eps']);
 
 %% Numerical Experiment with _Random_ Data Sites
-% This method does not depend on the data sites having a particular
-% structure.  We may try randomly placed data sites.
+% This radial basis function method for interpolation does not depend on
+% the data sites having a particular structure.  We may try randomly placed
+% data sites.
 
 tic %start the clock
 x=2*rand(n,1); %random data sites
@@ -149,10 +151,12 @@ disp(['Condition of K matrix = ' num2str(cond(Kmat))])
 
 %%
 % The error is not as good as before because of the poor spacing of the
-% data sites, but the method still works.
+% data sites, but the method still works for values of \(x\) within the
+% range of data sites.  _Extrapolation can be dangerous_.
 
 %% Numerical Experiment with Larger \(\gamma\)
-% Now let's choose a larger gamma to make the kernel function more peaked.
+% Now let's choose a larger \(\gamma\) to make the kernel function more
+% peaked.
 
 tic %start the clock
 x=(0:2/(n-1):2)'; %uniform data sites
@@ -185,7 +189,8 @@ disp(['Condition of K matrix = ' num2str(cond(Kmat))])
 
 %%
 % Notice that the condition number of the matrix \(\mathsf{K}\) is not as
-% large, but the error now is larger. 
+% large, but the error now approximation error for the radial basis
+% function method is larger.
 %
 % Here is a plot of the kernel function that we use.
 
@@ -197,4 +202,8 @@ axis([0 2 -0.1 1.1])
 eval(['print -depsc RBFKernelgam' num2str(gamma) '.eps']);
 
 %%
+% If you are interested in these problems, you should investigate the
+% summer research experience led by Professors Fasshauer and Hickernell,
+% <http://math.iit.edu/~openscholar/meshfree/event/summer-research-monte-carlo-methods-finance>.
+%
 % _Author: Fred J. Hickernell_
