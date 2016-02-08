@@ -26,6 +26,9 @@ publishMathJax('SineRoundOffTruncationError')
 %% Various Methods for Solving Nonlinear Equations
 publishMathJax('NonlinearEquationExamples')
 
+%% Radial Basis Function Example
+publishMathJax('RBFExample')
+
 %% Add another demo here
 
 %%
