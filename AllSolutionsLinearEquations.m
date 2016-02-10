@@ -89,8 +89,18 @@
 % \begin{pmatrix} \boldsymbol{0} \\ \boldsymbol{c}_{\textrm{L}}
 % \end{pmatrix} = \mathsf{U}_{\textrm{R}} \boldsymbol{c}_{\textrm{L}},\]
 %
-% where \(\boldsymbol{c}_{\textrm{L}} = \mathsf{U}_{\textrm{R}}^T
-% \boldsymbol{b}\).  Then the lack of fit is measured as 
+% \[ \mathsf{A} \boldsymbol{x} - \boldsymbol{b} =
+% \mathsf{U}\bigl(\mathsf{S}\mathsf{V}\boldsymbol{x} - \mathsf{U}^T
+% \boldsymbol{b}\bigr) = \mathsf{U}\bigl(\mathsf{S}\boldsymbol{y} -
+% \boldsymbol{c}\bigr) = \mathsf{U} \begin{pmatrix} 0 \\ \vdots \\ 0 \\
+% c_{p+1} \\ \vdots \\ c_m \end{pmatrix} = \begin{pmatrix} s_{11} y_1 - c_1
+% \\ \vdots \\ s_{pp}y_p - c_p \\ \boldsymbol{c}_{\textrm{L}} \end{pmatrix}
+% ,\]
+%
+% where \(\boldsymbol{c}_{\textrm{L}} = (c_{p+1}, \ldots, c_m)^T \).  Then
+% the lack of fit is measured as where \(\boldsymbol{c}_{\textrm{L}} =
+% \mathsf{U}_{\textrm{R}}^T \boldsymbol{b}\).  Then the lack of fit is
+% measured as
 %
 % \[ \lVert \mathsf{A} \boldsymbol{x} - \boldsymbol{b} \rVert = \lVert
 % \mathsf{U}_{\textrm{R}} \boldsymbol{c}_{\textrm{L}} \rVert = \sqrt{
@@ -98,11 +108,13 @@
 % \mathsf{U}_{\textrm{R}} \boldsymbol{c}_{\textrm{L}}} = \sqrt{
 % \boldsymbol{c}_{\textrm{L}}^T \boldsymbol{c}_{\textrm{L}}} = \lVert
 % \boldsymbol{\boldsymbol{c}_{\textrm{L}}} \rVert= \lVert
-% \mathsf{U}_{\textrm{R}}^T \boldsymbol{b} \rVert.\]
+% \mathsf{U}_{\textrm{R}}^T \boldsymbol{b} \rVert,\]
 %
-% If \(\boldsymbol{c}_{\textrm{L}} = \mathsf{U}_{\textrm{R}}^T
-% \boldsymbol{b} = \boldsymbol{0} \), then \(\boldsymbol{x}\) is an exact
-% solution. Otherwise, \(\boldsymbol{x}\) is an approximate solution.
+% since \( \mathsf{U}_{\textrm{R}}^T \mathsf{U}_{\textrm{R}} =
+% \mathsf{I}_{m-p \times m-p} \).  If \(\boldsymbol{c}_{\textrm{L}} =
+% \mathsf{U}_{\textrm{R}}^T \boldsymbol{b} = \boldsymbol{0} \), then
+% \(\boldsymbol{x}\) is an exact solution. Otherwise, \(\boldsymbol{x}\) is
+% an approximate solution.
 
 
 %% Examples

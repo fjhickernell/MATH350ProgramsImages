@@ -29,6 +29,9 @@ publishMathJax('NonlinearEquationExamples')
 %% Radial Basis Function Example
 publishMathJax('RBFExample')
 
+%% Step-By-Step Row Operations on a Matrix
+publishMathJax('RowOperationsExample')
+
 %% Finding All Solutions to a System of Linear Equations
 publishMathJax('AllSolutionsLinearEquations')
 
