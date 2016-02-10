@@ -29,7 +29,8 @@ publishMathJax('NonlinearEquationExamples')
 %% Radial Basis Function Example
 publishMathJax('RBFExample')
 
-%% Add another demo here
+%% Finding All Solutions to a System of Linear Equations
+publishMathJax('AllSolutionsLinearEquations')
 
 %%
 % Clean up and publish the total time taken.
