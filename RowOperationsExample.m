@@ -1,5 +1,7 @@
 %% Row Operations Example
-% This script works out some of the examples in the lecture notes
+% This script works out some of the examples in the lecture notes.  The
+% intent is to show how row operations lead to the LU decomposition, which
+% is used to solve systems of linear equations.
 
 %% Solving \(\mathsf{A}\boldsymbol{x} = \boldsymbol{b}\) Using Row Operations
 
@@ -118,6 +120,7 @@ shouldBePA = L * U %should equal P*A
 
 %%
 % If you wish, you can try another 3 x 3 A and/or 3 x 1 b, and the program
-% should still work.  For example, change A(2,2) to 1
+% should still work.  For example, change A(2,2) to 1, and see how the
+% switching of rows changes.
 % 
 % _Author: Fred J. Hickernell_
