@@ -35,28 +35,25 @@ end
 %% Download the GAIL package and add to the MATLAB path
 if GAIL
    disp('The GAIL package is now being downloaded...')
-   dirname = unzip('https://github.com/GailGithub/GAIL_Dev/zipball/develop/'); %download and unzip
-   wh = find(dirname{1} == filesep,1);
-   dirname = dirname{1}(1:(wh-1)); %get name of downloaded directory
-   cd(dirname)  %get to the right subdirectory
-   movefile('GAIL_Matlab/GAILstart.m') %move GAILstart 
-   movefile('GAIL_Matlab/GAIL_Install.m') %and GAIL_Install to the correct place
+   unzip('https://github.com/GailGithub/GAIL_Dev/archive/develop.zip'); %download and unzip
+   movefile('GAIL_Dev-develop', 'GAIL_Dev') 
+   addpath(fullfile(cd,'GAIL_Dev'))
+   savepath  
+   movefile(['GAIL_Dev' filesep 'GAIL_Matlab' filesep 'GAILstart.m'], ...
+      ['GAIL_Dev' filesep 'GAILstart.m']) %move GAILstart 
+   movefile(['GAIL_Dev' filesep 'GAIL_Matlab' filesep 'GAIL_Install.m'], ...
+      ['GAIL_Dev' filesep 'GAIL_Install.m']) %and GAIL_Install to the correct place
    GAIL_Install %this installs GAIL and sets the path
-   cd('..') %go back to the original directory
 end
 
 %% Download the MATH350ProgramsImages repository and add to the MATLAB path
 if MATH350
    fprintf('The MATH350ProgramsImages package is now being downloaded...\n')
-   dirname = unzip('https://github.com/fjhickernell/MATH350ProgramsImages/archive/master.zip'); %download and unzip
+   unzip('https://github.com/fjhickernell/MATH350ProgramsImages/archive/master.zip'); %download and unzip
    movefile('MATH350ProgramsImages-master', 'MATH350ProgramsImages') 
-   addpath(fullfile(cd,'MATH350ProgramsImages'))
+   wholepath=genpath(fullfile(cd,'MATH350ProgramsImages'));% Generate strings of paths to GAIL subdirectories
+   addpath(wholepath); % Add MATH350ProgramsImages directories and subdirectories
    savepath  
-%    wh = find(dirname{1} == filesep,1);
-%    dirname = dirname{1}(1:(wh-1)); %get name of downloaded directory
-%    wholepath=genpath(dirname);% Generate strings of paths to GAIL subdirectories
-%    addpath(wholepath); % Add MATH350ProgramsImages directories and subdirectories
-%    savepath;  
    fprintf('MATH350ProgramsImages has been succesfully installed.\n\n')
 end
 
@@ -74,7 +71,7 @@ end
 if PubDemo 
    disp('Now we perform a test by publishing one demo: VehicleSuspension')
    publishMathJax VehicleSuspension
-   web([dirname filesep 'html' filesep 'VehicleSuspension.html'])
+   web(['MATH350ProgramsImages' filesep 'html' filesep 'VehicleSuspension.html'])
 end
 
 end
