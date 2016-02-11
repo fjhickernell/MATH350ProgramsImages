@@ -48,12 +48,15 @@ end
 %% Download the MATH350ProgramsImages repository and add to the MATLAB path
 if MATH350
    fprintf('The MATH350ProgramsImages package is now being downloaded...\n')
-   dirname = unzip('https://github.com/fjhickernell/MATH350ProgramsImages/zipball/master/'); %download and unzip
-   wh = find(dirname{1} == filesep,1);
-   dirname = dirname{1}(1:(wh-1)); %get name of downloaded directory
-   wholepath=genpath(dirname);% Generate strings of paths to GAIL subdirectories
-   addpath(wholepath); % Add MATH350ProgramsImages directories and subdirectories
-   savepath;  
+   dirname = unzip('https://github.com/fjhickernell/MATH350ProgramsImages/archive/master.zip'); %download and unzip
+   movefile('MATH350ProgramsImages-master', 'MATH350ProgramsImages') 
+   addpath(fullfile(cd,'MATH350ProgramsImages'))
+   savepath  
+%    wh = find(dirname{1} == filesep,1);
+%    dirname = dirname{1}(1:(wh-1)); %get name of downloaded directory
+%    wholepath=genpath(dirname);% Generate strings of paths to GAIL subdirectories
+%    addpath(wholepath); % Add MATH350ProgramsImages directories and subdirectories
+%    savepath;  
    fprintf('MATH350ProgramsImages has been succesfully installed.\n\n')
 end
 
