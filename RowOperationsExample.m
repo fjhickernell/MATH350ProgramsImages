@@ -54,7 +54,7 @@ Linv = M2 * M1 %inverse of L
 L = inv(Linv) %don't use inv if you can help it, but we can't help it here
 shouldBeA = L * U %should equal A, which it does
    
-%% Now Using Partial Pivoting (Switchng Rows)
+%% Now Using Partial Pivoting (Switching Rows)
 % Now we re-do this process, but switch rows when needed. For the first
 % column, we find the row i for which abs(A(i,1)) is largest and choose
 % that as the new first row.
@@ -95,7 +95,7 @@ b2 = M2 * b21 %add a multiple of row two to row three
 % substitution_.  We solve for \(x_3\), then \(x_2\), then \(x_1\).
 
 U = A2 %an upper triangular matrix
-c = b2; %the final right side
+c = b2 %the final right side
 x(3,1) = c(3)/U(3,3);
 x(2) = (c(2) - U(2,3)*x(3))/U(2,2);
 x(1) = (c(1) - U(1,2)*x(2) - U(1,3)*x(3))/U(1,1)
