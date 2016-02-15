@@ -36,8 +36,6 @@ text(0.3, 2.3, ['Error = ' num2str(esterr)])
 text(0.3, 2, ['cond(A) = ' num2str(cond(A),4)])
 text(0.3, 1.7, ['\(\|\epsilon\| = \)' num2str(norm(epsvec),4)])
 eval(['print -depsc QuadInterpCondition' num2str(1000*t) '.eps']);
-disp(['Approximation error = ' num2str(esterr)])
-disp(['Condition of A matrix = ' num2str(cond(A))])
 
 %%
 % Note that the original function and the approximation are
@@ -75,8 +73,6 @@ text(0.3, 2.3, ['Error = ' num2str(esterr)])
 text(0.3, 2, ['cond(A) = ' num2str(cond(A),4)])
 text(0.3, 1.7, ['\(\|\epsilon\| = \)' num2str(norm(epsvec),4)])
 eval(['print -depsc QuadInterpCondition' num2str(1000*t) '.eps']);
-disp(['Approximation error = ' num2str(esterr)])
-disp(['Condition of A matrix = ' num2str(cond(A))])
 
 %%
 % In this case the original function and the approximation are quite far
