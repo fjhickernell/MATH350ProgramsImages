@@ -32,6 +32,9 @@ publishMathJax('RBFExample')
 %% Step-By-Step Row Operations on a Matrix
 publishMathJax('RowOperationsExample')
 
+%% Interpolation Error Related to the Condition Number of a Matrix
+publishMathJax('InterpolationCondition')
+
 %% Finding All Solutions to a System of Linear Equations
 publishMathJax('AllSolutionsLinearEquations')
 
