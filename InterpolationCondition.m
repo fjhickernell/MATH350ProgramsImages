@@ -32,9 +32,9 @@ ylabel('\(y(x)\)')
 legend(h, {'true \(y\)', 'approximation \(\tilde{y}\)', 'data'}, ...
    'location','southwest')
 legend('boxoff')
-text(0.3, 2.3, ['Error = ' num2str(esterr)])
+text(0.3, 2.3, ['error = ' num2str(esterr)])
 text(0.3, 2, ['cond(A) = ' num2str(cond(A),4)])
-text(0.3, 1.7, ['\(\|\epsilon\| = \)' num2str(norm(epsvec),4)])
+text(0.3, 1.7, ['\(\|\epsilon\| =\) ' num2str(norm(epsvec),4)])
 eval(['print -depsc QuadInterpCondition' num2str(1000*t) '.eps']);
 
 %%
@@ -69,9 +69,9 @@ ylabel('\(y(x)\)')
 legend(h, {'true \(y\)', 'approximation \(\tilde{y}\)', 'data'}, ...
    'location','southwest')
 legend('boxoff')
-text(0.3, 2.3, ['Error = ' num2str(esterr)])
+text(0.3, 2.3, ['error = ' num2str(esterr)])
 text(0.3, 2, ['cond(A) = ' num2str(cond(A),4)])
-text(0.3, 1.7, ['\(\|\epsilon\| = \)' num2str(norm(epsvec),4)])
+text(0.3, 1.7, ['\(\|\epsilon\| =\) ' num2str(norm(epsvec),4)])
 eval(['print -depsc QuadInterpCondition' num2str(1000*t) '.eps']);
 
 %%

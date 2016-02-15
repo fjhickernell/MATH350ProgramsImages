@@ -82,20 +82,10 @@
 % \[ \mathsf{A} \boldsymbol{x} - \boldsymbol{b} =
 % \mathsf{U}\bigl(\mathsf{S}\mathsf{V}\boldsymbol{x} - \mathsf{U}^T
 % \boldsymbol{b}\bigr) = \mathsf{U}\bigl(\mathsf{S}\boldsymbol{y} -
-% \boldsymbol{c}\bigr) = \mathsf{U} \begin{pmatrix} 0 \\ \vdots \\ 0 \\
-% c_{p+1} \\ \vdots \\ c_m \end{pmatrix} = \begin{pmatrix}
-% \underbrace{\mathsf{U}_{\textrm{L}}}_{m \times p} &
-% \underbrace{\mathsf{U}_{\textrm{R}}}_{m \times m-p} \end{pmatrix}
-% \begin{pmatrix} \boldsymbol{0} \\ \boldsymbol{c}_{\textrm{L}}
-% \end{pmatrix} = \mathsf{U}_{\textrm{R}} \boldsymbol{c}_{\textrm{L}},\]
-%
-% \[ \mathsf{A} \boldsymbol{x} - \boldsymbol{b} =
-% \mathsf{U}\bigl(\mathsf{S}\mathsf{V}\boldsymbol{x} - \mathsf{U}^T
-% \boldsymbol{b}\bigr) = \mathsf{U}\bigl(\mathsf{S}\boldsymbol{y} -
-% \boldsymbol{c}\bigr) = \mathsf{U} \begin{pmatrix} 0 \\ \vdots \\ 0 \\
-% c_{p+1} \\ \vdots \\ c_m \end{pmatrix} = \begin{pmatrix} s_{11} y_1 - c_1
-% \\ \vdots \\ s_{pp}y_p - c_p \\ \boldsymbol{c}_{\textrm{L}} \end{pmatrix}
-% ,\]
+% \boldsymbol{c}\bigr) = \mathsf{U} \begin{pmatrix} s_{11} y_1 - c_1 \\
+% \vdots \\ s_{pp}y_p - c_p \\ c_{p+1} \\ \vdots \\ c_m \end{pmatrix} =
+% \mathsf{U} \begin{pmatrix} s_{11} y_1 - c_1 \\ \vdots \\ s_{pp}y_p - c_p
+% \\ \boldsymbol{c}_{\textrm{L}} \end{pmatrix} ,\]
 %
 % where \(\boldsymbol{c}_{\textrm{L}} = (c_{p+1}, \ldots, c_m)^T \).  Then
 % the lack of fit is measured as where \(\boldsymbol{c}_{\textrm{L}} =
@@ -103,15 +93,27 @@
 % measured as
 %
 % \[ \lVert \mathsf{A} \boldsymbol{x} - \boldsymbol{b} \rVert = \lVert
-% \mathsf{U}_{\textrm{R}} \boldsymbol{c}_{\textrm{L}} \rVert = \sqrt{
-% \boldsymbol{c}_{\textrm{L}}^T \mathsf{U}_{\textrm{R}}^T
-% \mathsf{U}_{\textrm{R}} \boldsymbol{c}_{\textrm{L}}} = \sqrt{
+% \mathsf{U} \bigl(\mathsf{S}\boldsymbol{y} - \boldsymbol{c}\bigr) \rVert =
+% \sqrt{ \bigl(\mathsf{S}\boldsymbol{y} - \boldsymbol{c}\bigr)^T
+% \mathsf{U}^T \mathsf{U} \bigl(\mathsf{S}\boldsymbol{y} -
+% \boldsymbol{c}\bigr)} = \sqrt{ \bigl(\mathsf{S}\boldsymbol{y} -
+% \boldsymbol{c}\bigr)^T \bigl(\mathsf{S}\boldsymbol{y} -
+% \boldsymbol{c}\bigr)} = \sqrt{ (s_{11} y_1 - c_1)^2 + \cdots + 
+% (s_{pp}y_p - c_p)^2 + \boldsymbol{c}_{\textrm{L}}^T
+% \boldsymbol{c}_{\textrm{L}}}. \]
+%
+% It is evident from the equation above that the choice of \(y_1 =
+% c_1/s_{11}, \ldots, y_p = c_p/s_{pp}\) made above minimizes the lack of
+% fit.  Under this choice, the lack of fit becomes
+%
+% \[ \lVert \mathsf{A} \boldsymbol{x} - \boldsymbol{b} \rVert = \sqrt{
 % \boldsymbol{c}_{\textrm{L}}^T \boldsymbol{c}_{\textrm{L}}} = \lVert
 % \boldsymbol{\boldsymbol{c}_{\textrm{L}}} \rVert= \lVert
 % \mathsf{U}_{\textrm{R}}^T \boldsymbol{b} \rVert,\]
 %
-% since \( \mathsf{U}_{\textrm{R}}^T \mathsf{U}_{\textrm{R}} =
-% \mathsf{I}_{m-p \times m-p} \).  If \(\boldsymbol{c}_{\textrm{L}} =
+% since \(\boldsymbol{c}_{\textrm{L}} = \mathsf{U}_{\textrm{R}}^T
+% \boldsymbol{b}\) where \(\mathsf{U}_{\textrm{R}}\) denotes the right
+% \(m-p\) columns of \(\mathsf{U}\).  If \(\boldsymbol{c}_{\textrm{L}} =
 % \mathsf{U}_{\textrm{R}}^T \boldsymbol{b} = \boldsymbol{0} \), then
 % \(\boldsymbol{x}\) is an exact solution. Otherwise, \(\boldsymbol{x}\) is
 % an approximate solution.

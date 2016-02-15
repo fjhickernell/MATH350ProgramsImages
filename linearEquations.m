@@ -24,16 +24,16 @@ p = find(diag(S) > 10*eps,1,'last'); %number of nonzero singular values
 y = Sdiag(1:p).\c(1:p); %preliminary solution
 xp = V(:,1:p)*y(1:p); %a particular exact or approximate solution
 Xh = []; %initialize solution of the Ax=0
-resid = 0;
-if p == m %at least one exact solution exists
-   if n > p %many solutions exist
-      Xh = V(:,p+1:n); %matrix whose columns are linear independent solutions of Ax = 0     
-   end
-else
-   resid = norm(c(p+1:m));
-   if p < n
-      warning('Matrix is not of full rank')
-   end
+resid = 0; %initialize residual
+if p < n %many solutions exist
+   Xh = V(:,p+1:n); %matrix whose columns are linear independent solutions of Ax = 0     
 end
+if p < m %solution may not be exact
+   resid = norm(c(p+1:m));
+end
+if p < min(m,n)
+   warning('Matrix is not of full rank')
+end
+
 
    

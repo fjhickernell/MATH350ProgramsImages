@@ -34,8 +34,8 @@ b2 = M2 * b1 %add a multiple of row two to row three
 % Give new names to our final A and b.  We have new equations with the same
 % solution as the original.
 
-U = A2; %an upper triangular matrix = M2*M1*A
-c = b2; %the final right side = M2*M1*b
+U = A2 %an upper triangular matrix = M2*M1*A
+c = b2 %the final right side = M2*M1*b
 
 %%
 % Now we solve \(\mathsf{U} \boldsymbol{x} = \boldsymbol{c}\) for
@@ -88,14 +88,13 @@ b21 = P2 * b1 %switch rows of b
 M2 = [1 0 0; 0 1 0; 0 -A21(3,2)/A21(2,2) 1]
 A2 = M2 * A21 %add a multiple of row two to row three
 b2 = M2 * b21 %add a multiple of row two to row three
-
-
-%%
-% Now we solve for the values of \(\boldsymbol{x}\) using _backward
-% substitution_.  We solve for \(x_3\), then \(x_2\), then \(x_1\).
-
 U = A2 %an upper triangular matrix
 c = b2 %the final right side
+
+%%
+% Now we solve for the elements of \(\boldsymbol{x}\) using _backward
+% substitution_.  We solve for \(x_3\), then \(x_2\), then \(x_1\).
+
 x(3,1) = c(3)/U(3,3);
 x(2) = (c(2) - U(2,3)*x(3))/U(2,2);
 x(1) = (c(1) - U(1,2)*x(2) - U(1,3)*x(3))/U(1,1)
