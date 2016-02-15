@@ -25,15 +25,16 @@ toc
 
 %% Plot Approximation
 figure; 
-h=plot(xplot,yplot,'-',xplot,yappxplot,'k-',x,yvec,'.');
+h = plot(xplot, yplot, '-', xplot, yappxplot, 'k-', x, yvec, '.');
 axis([-0.1 1.1 -1.2 2.5])
 xlabel('\(x\)')
 ylabel('\(y(x)\)')
-legend(h,{'true \(y\)','approximation \(\tilde{y}\)','data'},'location','southwest')
+legend(h, {'true \(y\)', 'approximation \(\tilde{y}\)', 'data'}, ...
+   'location','southwest')
 legend('boxoff')
-text(0.3,2.3,['Error = ' num2str(esterr)])
-text(0.3,2,['cond(A) = ' num2str(cond(A),4)])
-text(0.3,1.7,['\(\|\epsilon\| = \)' num2str(norm(epsvec),4)])
+text(0.3, 2.3, ['Error = ' num2str(esterr)])
+text(0.3, 2, ['cond(A) = ' num2str(cond(A),4)])
+text(0.3, 1.7, ['\(\|\epsilon\| = \)' num2str(norm(epsvec),4)])
 eval(['print -depsc QuadInterpCondition' num2str(1000*t) '.eps']);
 disp(['Approximation error = ' num2str(esterr)])
 disp(['Condition of A matrix = ' num2str(cond(A))])
@@ -63,15 +64,16 @@ toc
 
 %% Plot Approximation
 figure; 
-h=plot(xplot,yplot,'-',xplot,yappxplot,'k-',x,yvec,'.');
+h = plot(xplot, yplot, '-', xplot, yappxplot, 'k-', x, yvec, '.');
 axis([-0.1 1.1 -1.2 2.5])
 xlabel('\(x\)')
 ylabel('\(y(x)\)')
-legend(h,{'true \(y\)','approximation \(\tilde{y}\)','data'},'location','southwest')
+legend(h, {'true \(y\)', 'approximation \(\tilde{y}\)', 'data'}, ...
+   'location','southwest')
 legend('boxoff')
-text(0.3,2.3,['Error = ' num2str(esterr)])
-text(0.3,2,['cond(A) = ' num2str(cond(A),4)])
-text(0.3,1.7,['\(\|\epsilon\| = \)' num2str(norm(epsvec),4)])
+text(0.3, 2.3, ['Error = ' num2str(esterr)])
+text(0.3, 2, ['cond(A) = ' num2str(cond(A),4)])
+text(0.3, 1.7, ['\(\|\epsilon\| = \)' num2str(norm(epsvec),4)])
 eval(['print -depsc QuadInterpCondition' num2str(1000*t) '.eps']);
 disp(['Approximation error = ' num2str(esterr)])
 disp(['Condition of A matrix = ' num2str(cond(A))])
