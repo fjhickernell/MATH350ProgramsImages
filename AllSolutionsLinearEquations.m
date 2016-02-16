@@ -23,18 +23,23 @@
 %
 % \[ \mathsf{A} = \mathsf{U} \mathsf{S} \mathsf{V}^T, \]
 %
-% where \(\mathsf{U}\) is an \(m \times m\) matrix satisfying
-% \(\mathsf{U}^{-1} = \mathsf{U}^T\).  This means that the columns of
-% \(\mathsf{U}\) are orthonormal.  Moreover, \(\mathsf{V}\) is an \(n
-% \times n\) matrix satisfying \(\mathsf{V}^{-1} = \mathsf{V}^T\), and
-% \(\mathsf{S}\) is an \(m \times n\) diagonal matrix with all non-negative
-% elements, and the first \(p\) diagonal elements being non-zero. Note that
-% \[ p \le \min(m,n). \] Thus,
+% where 
+% 
+% * \(\mathsf{U}\) is an \(m \times m\) matrix satisfying \(\mathsf{U}^{-1}
+% = \mathsf{U}^T\); this means that the columns of \(\mathsf{U}\) are
+% orthonormal.
+% * \(\mathsf{V}\) is an \(n \times n\) matrix satisfying \(\mathsf{V}^{-1}
+% = \mathsf{V}^T\), and
+% * \(\mathsf{S}\) is an \(m \times n\) diagonal matrix with non-negative
+% elements, and with the first \(p\) diagonal elements being positive.
 %
-% \begin{gather*} \mathsf{A}\boldsymbol{x} = \boldsymbol{b} \iff \mathsf{U}
-% \mathsf{S} \mathsf{V}^T\boldsymbol{x} = \boldsymbol{b} \\ \iff \mathsf{S}
-% \boldsymbol{y} = \boldsymbol{c} = \mathsf{U}^T \boldsymbol{b},\quad
-% \boldsymbol{x} = \mathsf{V} \boldsymbol{y} \end{gather*}
+% Note that \[ p \le \min(m,n). \] Thus,
+%
+% \begin{equation*} \mathsf{A}\boldsymbol{x} = \boldsymbol{b} \iff
+% \mathsf{U} \mathsf{S} \mathsf{V}^T\boldsymbol{x} = \boldsymbol{b}  \iff
+% \mathsf{S} \boldsymbol{y} = \boldsymbol{c} = \mathsf{U}^T
+% \boldsymbol{b},\quad \boldsymbol{x} = \mathsf{V} \boldsymbol{y}
+% \end{equation*}
 %
 % Since \(\mathsf{S}\) has such a simple form, it is possible to solve
 % \(\mathsf{S} \boldsymbol{y} = \boldsymbol{c}\) for the first \(p\)
@@ -62,9 +67,9 @@
 %
 % where \(\boldsymbol{a}\) is an arbitrary \(n-p \times 1\) vector.
 %
-% If \(p = n\), then the solution, \(\boldsymbol{x}\) is unique.  If \(p <
+% If \(p = n\), then the solution, \(\boldsymbol{x}\), is unique.  If \(p <
 % n\), then there are infinitely many solutions corresponding to infinitely
-% many choices of \(\boldsymbol{a}\).  Note that 
+% many choices of \(\boldsymbol{a}\).  Note that
 %
 % \[ \lVert \boldsymbol{x} \rVert^2 =
 % \boldsymbol{x}^T\boldsymbol{x} = \boldsymbol{y}^T \mathsf{V}^T
@@ -119,9 +124,73 @@
 % an approximate solution.
 
 
+%% Code for This Procedure
+% The mathematical procedure described above has been implemented in the
+% following function:
+%
+% <include>linearEquations.m</include>
+%
+% We will use this function to compute some solutions of linear equations.
+
 %% Examples
+% Now we try some examples.  First is a simple square, nonsingular matrix.
 
 InitializeWorkspaceDisplay %initialize the workspace and the display parameters
+A = [3 -1 4
+   0 2 1
+   -6 5 2] %a nonsingular matrix
+b = [13
+   7
+   10] %a right hand vector
+[xp,Xh,resid] = linearEquations(A,b) %solution of the system of linear equations
+
+%%
+% Since the |Xh = []|, the solution is unique, and since |resid = 0|, the
+% solution is exact.
+%
+% Now let's add one more equation that is the first plus the third:
+
+A(4,:) = A(1,:) + A(3,:)
+b(4,:) = b(1,:) + b(3,:)
+[xp,Xh,resid] = linearEquations(A,b) %solution of the system of linear equations
+
+%%
+% In this case the solution is the same, and it is exact, even though the matrix is not
+% square.  Here |resid| is non-zero due to round-off error.
+%
+% However, if we change |b|, then we will not have an exact solution:
+
+b(3) = 20
+[xp,Xh,resid] = linearEquations(A,b) %solution of the system of linear equations
+
+%%
+% Now let's turn |A| around so that we have more unknowns than equations:
+
+A = A' %take the transpose
+b = b(1:3) %now b can only have three rows
+[xp,Xh,resid] = linearEquations(A,b) %solution of the system of linear equations
+
+%%
+% Since the number of unknowns is greater than the number of equations, we
+% have infinitely many solutions.
+%
+% Next, let's change the third row of |A| to be the sum of its first two
+% rows
+
+A(3,:) = A(1,:) + A(2,:)
+[xp,Xh,resid] = linearEquations(A,b) %solution of the system of linear equations
+
+%%
+% Since the third row of |b| is also the sum of its first two rows, the
+% solution is exact, and now the solution has an even higher dimension
+% because |Xh| has two columns.  Note the warning that |A| is not of full
+% rank.  It only has _two_ linearly independent rows/columns.
+%
+% However, if we change the third row of |b|, the solution will become
+% approximate, even though it is non-unique.
+
+b(3) = 23
+[xp,Xh,resid] = linearEquations(A,b) %solution of the system of linear equations
 
 %%
 % _Author: Fred J. Hickernell_

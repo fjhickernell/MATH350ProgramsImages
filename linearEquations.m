@@ -7,6 +7,7 @@ function [xp,Xh,resid] = linearEquations(A,b)
 %
 % where Xh denotes a matrix with linearly independent columns such that
 % A*Xh = 0.  Moreover, resid denotes the Euclidean norm of Ax-b
+
 if nargin < 1
    A = eye(2); %default A
    if nargin < 2
@@ -32,8 +33,5 @@ if p < m %solution may not be exact
    resid = norm(c(p+1:m));
 end
 if p < min(m,n)
-   warning('Matrix is not of full rank')
+   warning('Matrix is not of full rank.')
 end
-
-
-   
