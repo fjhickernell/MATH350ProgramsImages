@@ -35,6 +35,9 @@ publishMathJax('RowOperationsExample')
 %% Interpolation Error Related to the Condition Number of a Matrix
 publishMathJax('InterpolationCondition')
 
+%% Least Squares Polynomial Fit
+publishMathJax LeastSquaresFitPoly
+
 %% Finding All Solutions to a System of Linear Equations
 publishMathJax('AllSolutionsLinearEquations')
 
