@@ -11,16 +11,16 @@
 % in general fit \(5\) data points exactly.
 
 InitializeWorkspaceDisplay %initialize the workspace and the display parameters
-MATLABBlue = [0, 0.447, 0.741];
-MATLABOrange = [0.85,  0.325, 0.098];
-MATLABPurple = [0.494,  0.184, 0.556];
-MATLABGreen = [0.466,  0.674, 0.188];
+MATLABBlue = [0, 0.447, 0.741]; %these are 
+MATLABOrange = [0.85,  0.325, 0.098]; %MATLAB plotting
+MATLABPurple = [0.494,  0.184, 0.556]; %colors that 
+MATLABGreen = [0.466,  0.674, 0.188]; %we want to use
 tic %start the clock
 tdata = (-1:0.5:1)'; %t data
 ydata = [-3 0 1 0.5 -1]'; %y data
 A = [ones(5,1) tdata tdata.*tdata]; %matrix to perform interpolation
 c = A \ ydata %coefficients
-residuals = ydata-A*c; %residuals or lack-of-fit
+residuals = ydata - A*c; %residuals or lack-of-fit
 stdResid = std(residuals) %size of the residuals
 tplot = (-1.2:0.005:1.2)'; %points to plot function and its approximation
 yplot = [ones(size(tplot)) tplot tplot.*tplot]*c;
@@ -66,11 +66,11 @@ ylabel('Mile Time, \(T\)')
 
 %%
 % We may again fit some a quadratic function to the data.  This time,
-% define things slightly differently
+% define things slightly differently:
 
 basis = @(t) [ones(numel(t),1) t t.*t]; %the basis for our linear regression
 A = basis(year); %regression matrix
-c = A\mileTime %coefficients
+c = A \ mileTime %coefficients
 residuals = mileTime - A*c; %residuals or lack-of-fit
 stdResid = std(residuals) %size of the residuals
 yearPlot = (1965:0.01:2020)'; %points to plot function and its approximation
@@ -93,7 +93,7 @@ condA = cond(A)
 
 basis = @(t) [ones(numel(t),1) t-1980 (t-1980).*(t-1980)]; %the basis, now with t centered
 A = basis(year); %regression matrix
-c = A\mileTime %these coefficients are now different
+c = A \ mileTime %these coefficients are now different
 residuals = mileTime - A*c; %residuals or lack-of-fityear
 stdResid = std(residuals) %size of the residuals
 mileTimeplot = basis(yearPlot)*c; %fitted mile times
@@ -119,7 +119,7 @@ condA = cond(A)
 
 basis = @(t) [ones(numel(t),1) t-1980 1./(t-1950)]; %the new
 A = basis(year); %regression matrix
-c = A\mileTime %these coefficients are now different
+c = A \ mileTime %these coefficients are now different
 residuals = mileTime - A*c; %residuals or lack-of-fityearPlot =(1965:0.01:2000)'; %points to plot function and its approximation
 stdResid = std(residuals) %size of the residuals
 mileTimeplot = basis(yearPlot)*c; %fitted mile times
@@ -132,7 +132,7 @@ condA = cond(A)
 
 %%
 % This model seems more reasonable and has a similar size of residuals, but
-% extrapolation is always a risky business.
+% _extrapolation is always a risky business_.
 %
 % _Author: Fred J. Hickernell_
 
