@@ -46,7 +46,7 @@
 % elements of \(\boldsymbol{y}\) by simple division:
 %
 % \[ \underbrace{\begin{pmatrix} \begin{matrix} s_{11} & & \\ & s_{22} \\ &
-% & \ddots \\ & & & s_p \end{matrix} & {\Huge \mathsf{0}} \\ \\ {\Huge
+% & \ddots \\ & & & s_{pp} \end{matrix} & {\Huge \mathsf{0}} \\ \\ {\Huge
 % \mathsf{0}} & {\Huge \mathsf{0}} \end{pmatrix}}_{m \times n}
 % \begin{pmatrix}y_1 \\ y_2 \\ \vdots \\ y_p \\ y_{p+1} \\ \vdots \\ y_n
 % \end{pmatrix} = \begin{pmatrix}c_1 \\ c_2 \\ \vdots \\ c_p \\ c_{p+1} \\

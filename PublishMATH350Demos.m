@@ -13,34 +13,42 @@ save('PublishTime.mat','tPubStart') %save it because clearvars is invoked by dem
 % The we use |publishMathJax|, which is an enhanced version of MATLAB's
 % |publish| command.
 
-%% Vehicle Suspension Example
+%% Part I. Vehicle Suspension Example
 % Simple MATLAB commands for an application problem
 publishMathJax('VehicleSuspension')
 
-%% Machie Precision and Round-Off Error
+%% Part I. Machine Precision and Round-Off Error
 publishMathJax('RoundOffMachinePrecision')
 
-%% Sine Function Round-Off and Truncation Error
+%% Part I. Sine Function Round-Off and Truncation Error
 publishMathJax('SineRoundOffTruncationError')
 
-%% Various Methods for Solving Nonlinear Equations
+%% Part II. Various Methods for Solving Nonlinear Equations
 publishMathJax('NonlinearEquationExamples')
 
-%% Radial Basis Function Example
+%% Part III. Radial Basis Function Example
 publishMathJax('RBFExample')
 
-%% Step-By-Step Row Operations on a Matrix
+%% Part III. Step-By-Step Row Operations on a Matrix
 publishMathJax('RowOperationsExample')
 
-%% Interpolation Error Related to the Condition Number of a Matrix
+%% Part III. Interpolation Error Related to the Condition Number of a Matrix
 publishMathJax('InterpolationCondition')
 
-%% Least Squares Polynomial Fit
+%% Part III. Least Squares Polynomial Fit
 publishMathJax LeastSquaresFitPoly
 
-%% Finding All Solutions to a System of Linear Equations
+%% Part III. Finding All Solutions to a System of Linear Equations
 publishMathJax('AllSolutionsLinearEquations')
 
+%% Part IV. Polynomial Interpolation with Uniform and Chebyshev Nodes
+publishMathJax('PolynomialInterpolation')
+
+%% Part IV. Piecewise Polynomial Interpolation with Splines and PCHIP
+publishMathJax('PolySplinePCHIPExample')
+
+%% Part IV. Convergence Rates of Various Interpolation Schemes
+publishMathJax('InterpolationConvergenceExample')
 %%
 % Clean up and publish the total time taken.
 load PublishTime.mat %load back tPubStart

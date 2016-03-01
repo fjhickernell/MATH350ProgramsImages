@@ -78,4 +78,4 @@ eval(['print -depsc QuadInterpCondition' num2str(1000*t) '.eps']);
 % In this case the original function and the approximation are quite far
 % apart away from the data sites.
 %
-% _Author: Fred J. Hickernell
+% _Author: Fred J. Hickernell_
