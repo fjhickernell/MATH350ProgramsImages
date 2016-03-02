@@ -16,6 +16,8 @@ nvec = 2.^(3:11); %numbers of sites
 nn = numel(nvec); %number of 
 xeval = -1:0.00005:1; %evaluation sites
 feval = testfun(xeval); %true function values
+figure
+plot(xeval,feval)
 errupoly = ones(nn,1); %initialize these
 errcpoly = ones(nn,1); %vectors
 erruspline = ones(nn,1); %containing
@@ -37,13 +39,13 @@ for i = 1:nn
 end
 disp('Convergence orders of ...')
 disp('  polynomial interpolation with uniform data sites:')
-disp(-diff(log(errupoly')))
+disp(-diff(log(errupoly'))/log(2))
 disp('  polynomial interpolation with Chebyshev data sites:')
-disp(-diff(log(errcpoly')))
+disp(-diff(log(errcpoly'))/log(2))
 disp('  spline interpolation uniform data sites:')
-disp(-diff(log(erruspline')))
+disp(-diff(log(erruspline'))/log(2))
 disp('  PCHIP interpolation uniform data sites:')
-disp(-diff(log(errupchip')))
+disp(-diff(log(errupchip'))/log(2))
    
 %% Plot errors
 figure
