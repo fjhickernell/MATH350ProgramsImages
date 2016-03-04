@@ -39,10 +39,6 @@ if GAIL
    movefile('GAIL_Dev-develop', 'GAIL_Dev') 
    addpath(fullfile(cd,'GAIL_Dev'))
    savepath  
-   movefile(['GAIL_Dev' filesep 'GAIL_Matlab' filesep 'GAILstart.m'], ...
-      ['GAIL_Dev' filesep 'GAILstart.m']) %move GAILstart 
-   movefile(['GAIL_Dev' filesep 'GAIL_Matlab' filesep 'GAIL_Install.m'], ...
-      ['GAIL_Dev' filesep 'GAIL_Install.m']) %and GAIL_Install to the correct place
    GAIL_Install %this installs GAIL and sets the path
 end
 
