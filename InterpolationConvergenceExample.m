@@ -10,8 +10,10 @@
 % investigated.
 InitializeWorkspaceDisplay %initialize the workspace and the display parameters
 tic
-testfun = @(x) sin(10*x).*exp(-3*x); %infinitely smooth test function but with larg derivatives
+%testfun = @(x) sin(10*x).*exp(-3*x); %infinitely smooth test function but with larg derivatives
 %testfun = @(x) abs(x - pi/10); %infinitely smooth test function with small derivatives
+%testfun = @(x) abs(x-pi/10) .* (x-pi/10); %infinitely smooth test function with small derivatives
+testfun = @(x) abs(x-pi/10) .* (x-pi/10).^2; %infinitely smooth test function with small derivatives
 nvec = 2.^(3:11); %numbers of sites
 nn = numel(nvec); %number of 
 xeval = -1:0.00005:1; %evaluation sites
