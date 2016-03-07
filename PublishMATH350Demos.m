@@ -49,6 +49,13 @@ publishMathJax('PolySplinePCHIPExample')
 
 %% Part IV. Convergence Rates of Various Interpolation Schemes
 publishMathJax('InterpolationConvergenceExample')
+
+%% Part IV. Using the FFT for Filtering
+publishMathJax('AudioFilterExample')
+
+%% Part V. Comparing the Errors of Different Quadrature Rules
+publishMathJax('ComparingQuadratureRules')
+
 %%
 % Clean up and publish the total time taken.
 load PublishTime.mat %load back tPubStart
