@@ -9,15 +9,15 @@
 tic
 InitializeWorkspaceDisplay %initialize the workspace and the display parameters
 a = 0; b = 2; %limits of integration
-alpha = -1/2; beta = 4; %parameters for the test function
-f = @(x) exp(alpha*x).*cos(beta*x); %first test function
-fname = 'damped_sinusoid';
-integ = (1./(alpha^2 + beta^2)).*(-exp(a*alpha)*(alpha*cos(a*beta) ...
-   + beta*sin(a*beta)) + exp(alpha*b)*(alpha*cos(b*beta) ...
-   + beta*sin(b*beta))); %exact integral
-% c = sqrt(2); f = @(x) abs(x-c); %second test function
-% fname = 'vshape';
-% integ = c^2-2*c+2; %exact integral
+% alpha = -1/2; beta = 4; %parameters for the test function
+% f = @(x) exp(alpha*x).*cos(beta*x); %first test function
+% fname = 'damped_sinusoid';
+% integ = (1./(alpha^2 + beta^2)).*(-exp(a*alpha)*(alpha*cos(a*beta) ...
+%    + beta*sin(a*beta)) + exp(alpha*b)*(alpha*cos(b*beta) ...
+%    + beta*sin(b*beta))); %exact integral
+c = sqrt(2); f = @(x) abs(x-c); %second test function
+fname = 'vshape';
+integ = c^2-2*c+2; %exact integral
 mmax = 14;
 nmax = 2^mmax; %maximum number of nodes
 x = a+(b-a)*(0:1/nmax:1); %places to evaluate f

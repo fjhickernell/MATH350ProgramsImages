@@ -26,6 +26,7 @@ disp('Press <Enter> to continue'); pause
 sound(Gnote,Fs) %play a sound
 disp('Press <Enter> to continue'); pause
 sound(MajorChord,Fs) %play a sound
+disp('Press <Enter> to continue'); pause
 
 %% Looking at the Spectrum of the Sound
 % Next we look at the Fourier decomposition of the C note using the FFT and
@@ -51,6 +52,7 @@ print -depsc CnoteSpectrumUpclose.eps
 
 noisyC = Cnote+0.05*randn(size(t)); %random noise
 sound(noisyC,Fs) %sounds like this
+disp('Press <Enter> to continue'); pause
 FFTnoisyC = fft(noisyC); %Fourier coefficients of the noisy C
 figure
 semilogy(freqvec,abs(FFTnoisyC([n/2+1:n 1:n/2])),'b')

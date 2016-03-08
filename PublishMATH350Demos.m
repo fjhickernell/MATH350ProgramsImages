@@ -56,6 +56,13 @@ publishMathJax('AudioFilterExample')
 %% Part V. Comparing the Errors of Different Quadrature Rules
 publishMathJax('ComparingQuadratureRules')
 
+%% Part V. Examples Using MATLAB's |integral|
+publishMathJax('IntegralExamples')
+
+%% Part V. Period of the Simple Pendulum
+publishMathJax('PeriodSimplePendulum')
+
+
 %%
 % Clean up and publish the total time taken.
 load PublishTime.mat %load back tPubStart
