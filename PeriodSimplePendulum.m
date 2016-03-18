@@ -54,10 +54,40 @@ T = integral(integrand,0,1) %pendulum amplitude
 integrand2=@(y) -E*sqrt(1-y.*y)./(sqrt(1-E.*y.*y).*...
    (sqrt(1-E.*y.*y)+sqrt(1-E))); %new integrand without singularity
 Tnew = (4/(omega*sqrt(1-E)))*(integral(integrand2,0,1)+pi/2) %a more accurate value for the period
-toc
-
 %%
 % Without the re-write of the integrand and the period is a finite (and
 % wrong) value.
-%
+
+%% Pendulum with Chebfun
+% We may also use Chebfun to perform the integration.  First we do the
+% moderate amplitude
+
+amplitude = pi/2; %amplitude of pendulum
+E = sin(amplitude/2).^2; %scaled energy
+integrand2=@(y) -E*sqrt(1-y.*y)./(sqrt(1-E.*y.*y).*...
+   (sqrt(1-E.*y.*y)+sqrt(1-E))); %new integrand without singularity
+chebf = chebfun(integrand2,[0,1]) %create a Chebfun
+Tnew = (4/(omega*sqrt(1-E)))*(sum(chebf)+pi/2) %the command sum integrates Chebfuns
+
+%% 
+% The answer is mostly correct, but there is a warning because this
+% integrand has a singular derivative at \(y=1\).  It helps to turn on
+% splitting on.
+
+chebf = chebfun(integrand2,[0,1],'splitting','on') %create a Chebfun
+Tnew = (4/(omega*sqrt(1-E)))*(sum(chebf)+pi/2) %the command sum integrates Chebfuns
+
+%% 
+% The answer is again correct, but this time there wre fewer points needed.
+% No let's try the case of \(\theta_{\max} = \pi\):
+
+amplitude = pi; %amplitude of pendulum
+E = sin(amplitude/2).^2; %scaled energy
+integrand2=@(y) -E*sqrt(1-y.*y)./(sqrt(1-E.*y.*y).*...
+   (sqrt(1-E.*y.*y)+sqrt(1-E))); %new integrand without singularity
+chebf = chebfun(integrand2,[0,1],'splitting','on') %create a Chebfun
+Tnew = (4/(omega*sqrt(1-E)))*(sum(chebf)+pi/2) %the command sum integrates Chebfuns
+toc
+
+%%
 % _Author:  Fred J. Hickernell_
