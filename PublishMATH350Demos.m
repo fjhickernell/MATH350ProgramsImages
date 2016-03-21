@@ -62,6 +62,9 @@ publishMathJax('IntegralExamples')
 %% Part V. Period of the Simple Pendulum
 publishMathJax('PeriodSimplePendulum')
 
+%% Part V. Examples of GAIL
+publishMathJax('GAILExamples')
+
 
 %%
 % Clean up and publish the total time taken.
