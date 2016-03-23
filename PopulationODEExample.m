@@ -95,8 +95,19 @@ xlabel('\(t\)')
 ylabel('\(y(t)\)')
 legend(hand1,legtext,'location','southeast')
 print -depsc 'popmodEuler.eps'
+%%
+% Again, as the stepsize gets smaller, the approximate answer converges (to
+% the correct answer), but the convergence is faster.
 
-%% ode45
+%% |ode45|
+% The modified Euler method is the simplest example of a Runge-Kutta
+% method.  MATLAB's |ode45| is a higher order Runge Kutta method, that
+% automatically adjusts the step-size to meet the desired error tolerance.
+% Notice that the number of time steps required for high accuracy is fewer
+% than the Euler and modified Euler methods.  According to the
+% documentation, the default relative error tolerance is \(0.001\), and the
+% default absolute error tolerance is \(0.000001\).
+
 sol=ode45(f,tint,y0); %get solution as a structure variable
 yplot=deval(sol,tplot); %evaluate solution of ODE at many points
 figure
@@ -106,7 +117,15 @@ xlabel('\(t\)')
 ylabel('\(y(t)\)')
 print -depsc 'popode45.eps'
 
-%% ode113
+%% |ode113|
+% The modified Euler method is also the simplest example of a
+% predictor-corrector method.  MATLAB's |ode113| is a higher (and even
+% variable) order predictor-corrector method, that automatically adjusts
+% the step-size to meet the desired error tolerance.  Notice that the
+% number of time steps required for high accuracy is fewer than the Euler
+% and modified Euler methods.  In this example, it requires more steps than
+% the |ode45|.
+
 sol=ode113(f,tint,y0); %get solution as a structure variable
 yplot=deval(sol,tplot); %evaluate solution of ODE at many points
 figure
@@ -115,6 +134,12 @@ axis([tint 0 1200])
 xlabel('$t$')
 ylabel('$y(t)$')
 print -depsc 'popode113.eps'
+
+%%
+% The additional steps needed after \(t = 1\) may be due to the
+% discontinuity in the function \(\gamma\) at \(t = 1\).
+%
+% _Author: Fred J. Hickernell_
 
 
 

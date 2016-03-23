@@ -34,11 +34,12 @@ T = integral(integrand,0,1) %pendulum amplitude
 %
 % \[ T(\theta_{\max}) = \frac{4}{\omega\sqrt{1 - E}}\Bigg[ \frac{\pi}{2} -
 % \int_{0}^{1} \frac{E \sqrt{1-y^2}} {\sqrt{1 - E y^2} \bigl\{\sqrt{1 - E}
-% + \sqrt{1 - E y^2} \bigr\} } \, \textrm{d} y \Bigg]. \]
+% + \sqrt{1 - E y^2} \bigr\} } \, \textrm{d} y \Bigg], \qquad 
+% \text{where }E = \sin^2(\theta_{\max}/2). \]
 %
 % Now for \(E <1\) the integrand has no singularity.
 
-integrand2=@(y) -E*sqrt(1-y.*y)./(sqrt(1-E.*y.*y).*...
+integrand2 = @(y) -E*sqrt(1-y.*y)./(sqrt(1-E.*y.*y).*...
    (sqrt(1-E.*y.*y)+sqrt(1-E))); %new integrand without singularity
 Tnew = (4/(omega*sqrt(1-E)))*(integral(integrand2,0,1)+pi/2) %a more accurate value for the period
 abs(Tnew-T) %notice the small discrepancy between the two values of the period

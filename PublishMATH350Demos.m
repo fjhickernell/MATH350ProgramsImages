@@ -65,6 +65,8 @@ publishMathJax('PeriodSimplePendulum')
 %% Part V. Examples of GAIL
 publishMathJax('GAILExamples')
 
+%% Part VI. Population ODE
+publishMathJax('PopulationODEExample')
 
 %%
 % Clean up and publish the total time taken.
