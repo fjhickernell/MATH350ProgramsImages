@@ -61,7 +61,7 @@ Tnew = (4/(omega*sqrt(1-E)))*(integral(integrand2,0,1)+pi/2) %a more accurate va
 
 %% Pendulum with Chebfun
 % We may also use Chebfun to perform the integration.  First we do the
-% moderate amplitude
+% moderate amplitude case.
 
 amplitude = pi/2; %amplitude of pendulum
 E = sin(amplitude/2).^2; %scaled energy

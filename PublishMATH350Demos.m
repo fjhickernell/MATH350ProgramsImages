@@ -68,6 +68,11 @@ publishMathJax('GAILExamples')
 %% Part VI. Population ODE
 publishMathJax('PopulationODEExample')
 
+%% Part VI. Forced and Damped Pendulum
+publishMathJax('ForcedDampedPendulumExample')
+
+%% Part VI. Predator-Prey Model
+publishMathJax('RabbitsFoxesODEExample')
 %%
 % Clean up and publish the total time taken.
 load PublishTime.mat %load back tPubStart
