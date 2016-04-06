@@ -1,4 +1,4 @@
-%% Timing of Error of ODE solvers
+%% Timing and Error of ODE solvers
 % Let's try some examples of solving ODEs with different solvers and
 % comparing their errors for different number of steps or steps for
 % differnt error tolerances.
@@ -18,7 +18,7 @@
 %
 % This ODE can be solved in general by analytic means:  
 %
-% \[ y(t) = \frac{y_0 \beta}{y_0 + (\beta - y_0)exp(- \alpha t)} \]
+% \[ y(t) = \frac{y_0 \beta}{y_0 + (\beta - y_0)\exp(- \alpha t)} \]
 %
 % We will try different methods and compare errors.
 
@@ -63,10 +63,9 @@ ylabel('Error')
 hold on
 
 %%
-% Now let's find the rate of decay.  We are expecting that the
-% \(\text{error} \approx c n^-p\), or equivalently \(\log(\text{error})
-% \approx \log(c) - p \log(n)\).  We may find \(c\) and \(p\) by
-% regression.
+% Now let's find the rate of decay.  We are expecting that \(\text{error}
+% \approx c n^{-p}\), or equivalently \(\log(\text{error}) \approx \log(c)
+% - p \log(n)\).  We may find \(c\) and \(p\) by regression.
 
 coeff = [ones(nh,1) log(nvec)] \ log(errEuler);
 pEuler = -coeff(2)
