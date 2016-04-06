@@ -1,7 +1,6 @@
-%% Timing and Error of ODE solvers
+%% Timing Versus Error for ODE solvers
 % Let's try some examples of solving ODEs with different solvers and
-% comparing their errors for different number of steps or steps for
-% differnt error tolerances.
+% compare their errors for different number of steps.
 
 %% Population Model with Exact Solution
 % Consider the population model without immigration/emigration. 
@@ -16,11 +15,11 @@
 % y(0) &= y_0
 % \end{align*}
 %
-% This ODE can be solved in general by analytic means:  
+% This ODE can be solved in general by analytic means,  
 %
-% \[ y(t) = \frac{y_0 \beta}{y_0 + (\beta - y_0)\exp(- \alpha t)} \]
+% \[ y(t) = \frac{y_0 \beta}{y_0 + (\beta - y_0)\exp(- \alpha t)}, \]
 %
-% We will try different methods and compare errors.
+% which allows us to compute exact errors.
 
 %% Population model
 % First we set up the population ODE model.
@@ -63,18 +62,23 @@ ylabel('Error')
 hold on
 
 %%
-% Now let's find the rate of decay.  We are expecting that \(\text{error}
-% \approx c n^{-p}\), or equivalently \(\log(\text{error}) \approx \log(c)
-% - p \log(n)\).  We may find \(c\) and \(p\) by regression.
+% Now let's find the rate of decay.  Since the points on this log-log plot
+% fall approximately in a straight line, we are expecting that
+% \(\text{error} \approx c n^{-p}\), or equivalently \(\log(\text{error})
+% \approx \log(c) - p \log(n)\).  We may find \(c\) and \(p\) by
+% regression.
 
-coeff = [ones(nh,1) log(nvec)] \ log(errEuler);
-pEuler = -coeff(2)
-cEuler = exp(coeff(1))
+coeff = [ones(nh,1) log(nvec)] \ log(errEuler); %linear regression with \
+pEuler = -coeff(2) %the p value
+cEuler = exp(coeff(1)) %the 
 loglog(nvec([1 nh]),cEuler * nvec([1 nh]).^-pEuler, ...
    '-','color',MATLABColors(1,:))
 
 %%
-% This affirms that the error for Euler's method decays like \(O(1/n)\).
+% Since \(p \approx 1\), this affirms that the error for Euler's method decays like \(O(1/n)\).
 
 %% Modified Euler's method
 % Let's do the same for the Modified Euler's Method.
+
+
+toc
