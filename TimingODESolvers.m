@@ -11,7 +11,7 @@
 % y & = \text{population} \\
 % \alpha & = \text{growth rate} \\
 % \beta & = \text{limiting population} \\
-% \frac{\textrm{d}y}{\textrm{d}t} &  =  \alpha y (1 - y/\beta) + \gamma(t),
+% \frac{\textrm{d}y}{\textrm{d}t} &  =  \alpha y (1 - y/\beta),
 % \qquad 0 \le t \\
 % y(0) &= y_0
 % \end{align*}
@@ -33,8 +33,8 @@ f = @(t,y) alpha*y.*(1 - y/beta); %right-hand-side of the ODE
 y0 = 10; %initial condition
 tint = [0,4]; %time interval
 tcheck = (tint(1):0.0002:tint(2)); %times to check against the exact solution
-yexact = @(t) y0*beta./(y0 + (beta-y0)*exp(-alpha*t));
-ycheck = yexact(tcheck);
+yexact = @(t) y0*beta./(y0 + (beta-y0)*exp(-alpha*t)); %exact solution
+ycheck = yexact(tcheck); %places to check the exact solution with the approximations
 MATLABColors = [0, 0.447, 0.741; ... %these are 
    0.85,  0.325, 0.098; ... %MATLAB plotting
    0.494,  0.184, 0.556; ... %colors that 
@@ -72,6 +72,9 @@ pEuler = -coeff(2)
 cEuler = exp(coeff(1))
 loglog(nvec([1 nh]),cEuler * nvec([1 nh]).^-pEuler, ...
    '-','color',MATLABColors(1,:))
+
+%%
+% This affirms that the error for Euler's method decays like \(O(1/n)\).
 
 %% Modified Euler's method
 % Let's do the same for the Modified Euler's Method.
