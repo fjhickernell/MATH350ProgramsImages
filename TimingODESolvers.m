@@ -73,8 +73,8 @@ hold on
 % regression.
 
 coeff = [ones(nh,1) log(nvec)] \ log(errEuler); %linear regression with \
-pEuler = -coeff(2) %the p value
-cEuler = exp(coeff(1)) %the 
+pEuler = -coeff(2) %the p value, approximately 1
+cEuler = exp(coeff(1)) %the c value
 loglog(nvec([1 nh]),cEuler * nvec([1 nh]).^-pEuler, ...
    '-','color',MATLABColors(1,:))
 
@@ -90,11 +90,12 @@ for i=1:nh;
    errMEuler(i) = max(abs(ycheck - yapprox));
 end
 coeff = [ones(nh,1) log(nvec)] \ log(errMEuler); %linear regression with \
-pMEuler = -coeff(2) %the p value
+pMEuler = -coeff(2) %the p value, approximately 2
 cMEuler = exp(coeff(1)) %the c value
-h = [h; loglog(nvec,errMEuler,'.', ...
+h2 = loglog(nvec,errMEuler,'.', ...
    nvec([1 nh]),cMEuler * nvec([1 nh]).^-pMEuler,'-', ...
-   'color',MATLABColors(2,:))];
+   'color',MATLABColors(2,:));
+h = [h; h2(1)];
 legtext{2} = 'Modified Euler Method';
 legend(h,legtext,'location','northeast')
 legend boxoff
