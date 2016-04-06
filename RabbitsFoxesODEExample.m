@@ -39,12 +39,14 @@ tplot = (tint(1):0.002:tint(2)); %times to plot solution at
 rabbitplot = spline(tEuler,yEuler(1,:),tplot); %get r values to plot
 foxplot = spline(tEuler,yEuler(2,:),tplot); %get f values to plot
 hand = plot(tplot,rabbitplot,'-',tplot,foxplot,'k-'); %plot solution versus time
+axis([tplot(1) tplot(end) 0 1.2*max([rabbitplot(:);foxplot(:)])])
 xlabel('\(t\)')
-legend(hand,{'\(r(t)\)', '\(f(t)\)'},'location','northeast')
+legend(hand,{'\(r(t)\)', '\(f(t)\)'},'location','northwest')
 legend('boxoff')
 print -depsc 'rabbitfoxEuler.eps'
 figure
 plot(rabbitplot,foxplot,'-') %plot solution in the phase plane
+axis([0 1.2*max(rabbitplot) 0 1.2*max(foxplot)])
 xlabel('\(r(t)\)')
 ylabel('\(f(t)\)')
 print -depsc 'rabbitfoxEulerphase.eps'
@@ -60,12 +62,14 @@ rabbitplot = spline(tEuler,yEuler(1,:),tplot); %get r values to plot
 foxplot = spline(tEuler,yEuler(2,:),tplot); %get f values to plot
 figure
 hand = plot(tplot,rabbitplot,'-',tplot,foxplot,'k-'); %plot solution versus time
+axis([tplot(1) tplot(end) 0 1.2*max([rabbitplot(:);foxplot(:)])])
 xlabel('\(t\)')
 legend(hand,{'\(r(t)\)', '\(f(t)\)'},'location','northeast')
 legend('boxoff')
 print -depsc 'rabbitfoxEulerSmall.eps'
 figure
 plot(rabbitplot,foxplot,'-') %plot solution in the phase plane
+axis([0 1.2*max(rabbitplot) 0 1.2*max(foxplot)])
 xlabel('\(r(t)\)')
 ylabel('\(f(t)\)')
 print -depsc 'rabbitfoxEulerphaseSmall.eps'
@@ -79,12 +83,14 @@ print -depsc 'rabbitfoxEulerphaseSmall.eps'
 rabbitplot = spline(tmEuler,ymEuler(1,:),tplot); %get r values to plot
 foxplot = spline(tmEuler,ymEuler(2,:),tplot); %get f values to plot
 hand = plot(tplot,rabbitplot,'-',tplot,foxplot,'k-'); %plot solution versus time
+axis([tplot(1) tplot(end) 0 1.2*max([rabbitplot(:);foxplot(:)])])
 xlabel('\(t\)')
 legend(hand,{'\(r(t)\)', '\(f(t)\)'},'location','northeast')
 legend('boxoff')
 print -depsc 'rabbitfoxmodEuler.eps'
 figure
 plot(rabbitplot,foxplot,'-') %plot solution in the phase plane
+axis([0 1.2*max(rabbitplot) 0 1.2*max(foxplot)])
 xlabel('\(r(t)\)')
 ylabel('\(f(t)\)')
 print -depsc 'rabbitfoxmodEulerphase.eps'
@@ -98,6 +104,7 @@ sol = ode45(f,tint,y0); %get solution as a structure variable
 yplot = deval(sol,tplot); %evaluate solution of ODE at many points
 figure
 hand = plot(tplot,yplot(1,:),'-',tplot,yplot(2,:),'k-'); %plot solution versus time
+axis([tplot(1) tplot(end) 0 1.2*max([rabbitplot(:);foxplot(:)])])
 xlabel('\(t\)')
 legend(hand,{'\(r(t)\)', '\(f(t)\)'},'location','northeast')
 legend('boxoff')
@@ -114,6 +121,7 @@ sol = ode113(f,tint,y0); %get solution as a structure variable
 yplot = deval(sol,tplot); %evaluate solution of ODE at many points
 figure
 hand = plot(tplot,yplot(1,:),'-',tplot,yplot(2,:),'k-'); %plot solution versus time
+axis([tplot(1) tplot(end) 0 1.2*max([rabbitplot(:);foxplot(:)])])
 xlabel('\(t\)')
 legend(hand,{'\(r(t)\)', '\(f(t)\)'},'location','northeast')
 legend('boxoff')
