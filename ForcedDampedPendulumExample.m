@@ -105,5 +105,6 @@ xlabel('\(\theta(t)\)')
 ylabel('\(v(t)\)')
 print -depsc 'pendode113phase.eps'
 
-
+%%
+% _Author: Fred J. Hickernell_
 

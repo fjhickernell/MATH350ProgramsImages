@@ -134,6 +134,7 @@ axis([tint 0 1200])
 xlabel('$t$')
 ylabel('$y(t)$')
 print -depsc 'popode113.eps'
+toc
 
 %%
 % The additional steps needed after \(t = 1\) may be due to the

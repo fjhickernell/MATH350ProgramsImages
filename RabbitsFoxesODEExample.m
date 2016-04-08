@@ -132,4 +132,6 @@ xlabel('\(r(t)\)')
 ylabel('\(f(t)\)')
 print -depsc 'rabbitfoxode113phase.eps'
 
+%%
+% _Author: Fred J. Hickernell_
 
