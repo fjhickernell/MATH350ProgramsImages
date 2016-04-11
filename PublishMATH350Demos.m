@@ -74,7 +74,14 @@ publishMathJax('ForcedDampedPendulumExample')
 %% Part VI. Predator-Prey Model
 publishMathJax('RabbitsFoxesODEExample')
 
+%% Part VI. Chebfun ODE IVP Examples
+publishMathJax('ChebfunODEExamples')
 
+%% Part VI. Hanging Cable Boundary-Value Problem
+publishMathJax('HangingCableODEExample')
+
+%% Part VI. Airy's Equation Boundary-Value Problem
+publishMathJax('AiryEqExample')
 
 %%
 % Clean up and publish the total time taken.
