@@ -83,6 +83,9 @@ publishMathJax('HangingCableODEExample')
 %% Part VI. Airy's Equation Boundary-Value Problem
 publishMathJax('AiryEqExample')
 
+%% Part VI. Piano String Vibration
+publishMathJax('PianoStringExample')
+
 %%
 % Clean up and publish the total time taken.
 load PublishTime.mat %load back tPubStart

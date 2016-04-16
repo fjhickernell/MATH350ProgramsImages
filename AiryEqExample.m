@@ -18,7 +18,7 @@ xint=[-10 10]; %interval of x
 bcf=@(ya,yb) [ya(2)-leftbc; yb(1)-rightbc];
 solinit = bvpinit(xint(1):diff(xint)/5:xint(2),[leftbc rightbc]);
 sol = bvp5c(f,bcf,solinit); %get solution as a structure variable
-xplot = xint(1):0.05:xint(2);
+xplot = xint(1):0.05:xint(2); %x values to plot the solution at
 yplot = deval(sol,xplot); %evaluate solution of ODE at many points
 toc
 figure
