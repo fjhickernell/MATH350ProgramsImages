@@ -22,10 +22,12 @@ tic
 InitializeWorkspaceDisplay %initialize the workspace and the display parameters
 xint=[0 1];
 Piano_op=chebop(xint); %create a differential operator
-Piano_op.op=@(x,y) diff(y,2); 
+Piano_op.op = @(x,y) diff(y,2); 
    %parts involving y and perhaps x, note that diff means derivative
-Piano_op.lbc=0; %left boundary condition
-Piano_op.rbc=0; %right boundary condition
+Piano_op.lbc = 0; %left boundary condition
+Piano_op.rbc=0; %right boundary condition for a piano
+%Piano_op.rbc = @(y) diff(y,1); %right boundary condition for a horn
+
 
 %% Compute the eigenvalues and eigenfunctions
 [eigfun,eigenval]=eigs(Piano_op); %finding eigenfunctions and eigenvalues

@@ -29,13 +29,13 @@ L = 1; %inductance in henrys
 A = [-1/(R*C) -1; 1/(L*C) 0]; %the first row describes the charge on the capacitor, and the second is the current through the inductor
 
 %% Solving the ODE
-[eigvec, eigval] = eig(A); %the eigenvectors and eigenvalues 
+[eigvec, eigval] = eig(A) %the eigenvectors and eigenvalues 
 time = 0:1e-5:1e-2; %times to evaluate the solution
 y0 = [0; 1]; 
 yval = eigvec\y0; %vector V^-1 times y_0
 yval = bsxfun(@times,exp(bsxfun(@times,diag(eigval),time)),yval); %exp(lambda t) * vector
 yval = eigvec*yval; %eigenvectors times vector
-yval = real(yval); %remove small imaginary parts due to round-off.
+%yval = real(yval); %remove small imaginary parts due to round-off.
 figure
 plot(time,yval(1,:))
 xlabel('\(t\)')
