@@ -83,7 +83,10 @@ publishMathJax('HangingCableODEExample')
 %% Part VI. Airy's Equation Boundary-Value Problem
 publishMathJax('AiryEqExample')
 
-%% Part VI. Piano String Vibration
+%% Part VII. LRC Circuit Example
+publishMathJax('LRC_Circuit')
+
+%% Part VII. Piano String Vibration
 publishMathJax('PianoStringExample')
 
 %%
